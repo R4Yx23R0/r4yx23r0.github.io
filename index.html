@@ -9,7 +9,7 @@
     </head>
 
     <body>
-
+        <div data-lt="lang">sdf</div>
     </body>
 </html>
 
@@ -18,7 +18,10 @@
 
 
 
+
+
 <script>
+    lang = "pl";
     lang_data = "";
     async function LoadLang()
     {
@@ -38,10 +41,11 @@
         // setup
         //console.log(lang_data)
         document.title = lang_data['title']
+
+        document.querySelectorAll('[data-lt]').forEach(e => {
+            e.innerHTML = lang_data[e.getAttribute('data-lt')];
+        });
     } 
     LoadLang();
-
-    const getT = (name) => lang_data[name];
-
 
 </script>
