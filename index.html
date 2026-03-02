@@ -1,1 +1,47 @@
-<h1>;)</h1>
+<!doctype html>
+
+<html>
+    <head>
+
+        <title>title</title>
+        <meta charset="UTF-8">
+
+    </head>
+
+    <body>
+
+    </body>
+</html>
+
+
+
+
+
+
+<script>
+    lang_data = "";
+    async function LoadLang()
+    {
+        lang = new URLSearchParams(window.location.search).get("lang")
+        path = "lang/pl.json"
+        switch (lang)
+        {
+            case "en": path = "lang/en.json"; break;
+            case "pl": path = "lang/pl.json"; break;
+            default: path = "lang/pl.json";
+        }
+
+        response = await fetch(path);
+        if (!response.ok) throw new Error(response.status);
+        lang_data = await response.json();
+
+        // setup
+        //console.log(lang_data)
+        document.title = lang_data['title']
+    } 
+    LoadLang();
+
+    const getT = (name) => lang_data[name];
+
+
+</script>
