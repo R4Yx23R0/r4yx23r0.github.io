@@ -9,7 +9,9 @@
     </head>
 
     <body>
-        <div data-lt="lang">sdf</div>
+        <header>
+            <button class="top_bt" data-lt="lang_button" onclick="changeLang()">lang</button>
+        </header>
     </body>
 </html>
 
@@ -21,17 +23,17 @@
 
 
 <script>
-    lang = "pl";
+    
+    var lang = new URLSearchParams(window.location.search).get("lang");
     lang_data = "";
     async function LoadLang()
     {
-        lang = new URLSearchParams(window.location.search).get("lang")
         path = "lang/pl.json"
         switch (lang)
         {
             case "en": path = "lang/en.json"; break;
             case "pl": path = "lang/pl.json"; break;
-            default: path = "lang/pl.json";
+            default: lang = "pl"; path = "lang/pl.json";
         }
 
         response = await fetch(path);
@@ -46,6 +48,45 @@
             e.innerHTML = lang_data[e.getAttribute('data-lt')];
         });
     } 
+
     LoadLang();
 
+
+    function changeLang() {
+        if (lang == "pl") lang = "en";
+        else lang = "pl";
+
+        console.log(`lang set to ${lang}`)
+        LoadLang();
+    }
+
 </script>
+
+
+<style>
+
+    /* top */
+
+    header {
+        width: 100%;
+        height: 125px;
+        text-align: center;
+        background-color: rgb(167, 167, 167);
+    }
+
+    button.top_bt {
+        width: 15%;
+        height: 35px;
+        background-color: gray;
+        border: none;
+    }
+
+    button.top_bt:hover {
+        background-image: linear-gradient(gray 40%,rgb(196, 196, 196));
+        color: white;
+    }
+
+    /* other */
+
+
+</style>
