@@ -3,5 +3,14 @@
     "lang_button_flag" : "en",
     "title": "tytul",
 
+    "base_text": "To jest opis.",
+
+    "game1_header": "Gra 1.",
+    "game1_description": "To jest przykładowy tekst gry 1.<br><br><br> <img src='images/placeholder.png'> To jest przykładowy obraz gry 1.<br><br><br> ... <br><br> ... <br><br> ... ",
+
+
+    "game2_header": "Gra 2.",
+    "game2_description": "To jest przykładowy tekst gry 2.<br><br><br> <img src='images/placeholder.png'> To jest przykładowy obraz gry 2.<br><br><br> ... <br><br> ... <br><br> ... ",
+
     "test-text" : "To jest testowy tekst."
 }

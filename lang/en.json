@@ -3,6 +3,15 @@
     "lang_button_flag" : "pl",
     "title": "title",
 
+    "base_text": "This is description.",
+
+
+    "game1_header": "Game 1.",
+    "game1_description": "This is example text about game 1.<br><br><br> <img src='images/placeholder.png'> This is example image of game 1.<br><br><br> ... <br><br> ... <br><br> ... ",
+
+
+    "game2_header": "Game 2.",
+    "game2_description": "This is example text about game 2.<br><br><br> <img src='images/placeholder.png'> This is example image of game 2.<br><br><br> ... <br><br> ... <br><br> ... ",
 
     "test-text" : "This is test text."
 }
