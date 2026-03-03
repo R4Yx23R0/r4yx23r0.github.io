@@ -4,21 +4,26 @@
     <head>
 
         <title>title</title>
+        <link rel="icon" type="image/x-icon" href="images/favicon.ico">
         <meta charset="UTF-8">
 
     </head>
 
     <body>
         <header>
-            <button class="top_bt" onclick="changeLang()">
-                <img id="lang_bt_img" width="20" height="20">
-                <font data-lt="lang_button"></font>
-            </button>
+            <img class="top_logo" src="images/logo-crop.png">
+            <div class="top_buttons">
 
-            <button class="top_bt">
-                <font data-lt="test-text"></font>
-            </button>
+                <button id="top_bt">
+                    <font data-lt="test-text"></font>
+                </button>
+            </div>
         </header>
+        <button id="top_bt" class="lang_bt" onclick="changeLang()">
+            <img id="lang_bt_img" width="20" height="20">
+            <font data-lt="lang_button"></font>
+        </button>
+        <line>
     </body>
 </html>
 
@@ -90,13 +95,15 @@
 
     body {
         font-family: 'Terminal F4';
-        background-color: gray;
+        background-color: rgb(22, 22, 22);
+        
     }
 
-    #lang_bt_img {
-
+    line {
         float: left;
-        border: 1px black solid;
+        width: 100%;
+        height: 2px;
+        background-color: gray;
     }
 
     /* top */
@@ -105,36 +112,76 @@
         width: 100%;
         height: 125px;
         padding: 2px;
+        float: left;
 
-        background-color: rgb(167, 167, 167);
+        background-color: black;
 
+        display: flex;
+        justify-content: space-around;
+        align-items: center;
+    }
+
+    header .top_logo {
+        height: 100%;
+        object-fit: cover;
+        flex-grow: 0;
+    }
+
+    header .top_buttons {
+        height: 100%;
+        width: 100%;
+
+        display: flex;
         justify-content: center;
-        display: flex;
+        align-items: center;
+
     }
 
-    button.top_bt font {
-        flex-grow: 1;
-    }
 
-    button.top_bt {
+
+    /* buttons */
+
+    #top_bt {
         display: flex;
+
         justify-content: space-between;
         align-items: center;
-        float: left;
 
         width: 250px;
         height: 35px;
 
-        background-color: rgb(255, 100, 65);
-        border: 2px black solid;
+        background-color: black;
+        color: white;
+        border: 2px white solid;
         font-family: 'Terminal F4';
         transition-duration: 0.2s;
     }
 
-    button.top_bt:hover {
-        background-color: rgb(175, 25, 0);
-        color: white;
-        border: 2px white solid;
+    #top_bt:hover {
+        background-color: white;
+        color: black;
+        border: 2px black solid;
+    }
+
+    #top_bt font {
+        flex-grow: 1;
+    }
+
+
+    #top_bt.lang_bt {
+        position:fixed;
+        margin-top: 1px;
+        right: 1px;
+        height: 40px;
+        width: 150px;
+        border-width: 1px;
+        font-size: 75%;
+    }
+
+    #top_bt.lang_bt lang_bt_img {
+
+        float: right;
+        border: 1px black solid;
     }
 
 
