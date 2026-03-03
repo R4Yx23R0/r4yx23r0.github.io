@@ -11,8 +11,12 @@
     <body>
         <header>
             <button class="top_bt" onclick="changeLang()">
+                <img id="lang_bt_img" width="20" height="20">
                 <font data-lt="lang_button"></font>
-                <img id="lang_bt_img" width="16" height="16">
+            </button>
+
+            <button class="top_bt">
+                <font data-lt="test-text"></font>
             </button>
         </header>
     </body>
@@ -54,10 +58,6 @@
 
         document.getElementById("lang_bt_img").src = "lang/" + lang_data["lang_button_flag"] + ".png"; 
     } 
-
-    LoadLang();
-
-
     function changeLang() {
         if (lang == "pl") lang = "en";
         else lang = "pl";
@@ -71,6 +71,9 @@
 
         LoadLang();
     }
+
+
+    LoadLang();
 
 </script>
 
@@ -91,7 +94,9 @@
     }
 
     #lang_bt_img {
-        float: right;
+
+        float: left;
+        border: 1px black solid;
     }
 
     /* top */
@@ -99,13 +104,27 @@
     header {
         width: 100%;
         height: 125px;
-        text-align: center;
+        padding: 2px;
+
         background-color: rgb(167, 167, 167);
+
+        justify-content: center;
+        display: flex;
+    }
+
+    button.top_bt font {
+        flex-grow: 1;
     }
 
     button.top_bt {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        float: left;
+
         width: 250px;
         height: 35px;
+
         background-color: rgb(255, 100, 65);
         border: 2px black solid;
         font-family: 'Terminal F4';
