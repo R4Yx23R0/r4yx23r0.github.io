@@ -10,7 +10,10 @@
 
     <body>
         <header>
-            <button class="top_bt" data-lt="lang_button" onclick="changeLang()">lang</button>
+            <button class="top_bt" onclick="changeLang()">
+                <font data-lt="lang_button"></font>
+                <img id="lang_bt_img" width="16" height="16">
+            </button>
         </header>
     </body>
 </html>
@@ -24,8 +27,9 @@
 
 <script>
     
-    var lang = new URLSearchParams(window.location.search).get("lang");
+    lang = new URLSearchParams(window.location.search).get("lang");
     lang_data = "";
+
     async function LoadLang()
     {
         path = "lang/pl.json"
@@ -47,6 +51,8 @@
         document.querySelectorAll('[data-lt]').forEach(e => {
             e.innerHTML = lang_data[e.getAttribute('data-lt')];
         });
+
+        document.getElementById("lang_bt_img").src = "lang/" + lang_data["nlang"] + ".png"; 
     } 
 
     LoadLang();
@@ -56,7 +62,13 @@
         if (lang == "pl") lang = "en";
         else lang = "pl";
 
-        console.log(`lang set to ${lang}`)
+        console.log(`lang set to ${lang}`);
+
+        params = new URLSearchParams(window.location.search);
+        if (!params.has("lang")) params.append("lang",lang)
+        else params.set("lang",lang);
+        window.history.pushState({}, "", "?" + params.toString());
+
         LoadLang();
     }
 
@@ -64,6 +76,23 @@
 
 
 <style>
+
+    @font-face {
+        font-family: 'Terminal F4';
+        src: url('font/Terminal F4.ttf');
+    }
+
+
+    /* other */
+
+    body {
+        font-family: 'Terminal F4';
+        background-color: gray;
+    }
+
+    #lang_bt_img {
+        float: right;
+    }
 
     /* top */
 
@@ -75,18 +104,19 @@
     }
 
     button.top_bt {
-        width: 15%;
+        width: 250px;
         height: 35px;
-        background-color: gray;
-        border: none;
+        background-color: rgb(255, 100, 65);
+        border: 2px black solid;
+        font-family: 'Terminal F4';
+        transition-duration: 0.2s;
     }
 
     button.top_bt:hover {
-        background-image: linear-gradient(gray 40%,rgb(196, 196, 196));
+        background-color: rgb(175, 25, 0);
         color: white;
+        border: 2px white solid;
     }
-
-    /* other */
 
 
 </style>
